@@ -2,12 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-.fresh-gradient {
-  background-color: rgb(134, 239, 172);
-  background-image: linear-gradient(
-    to right bottom,
-    rgb(219, 234, 254),
-    rgb(187, 247, 208),
-    rgb(254, 249, 195)
-  );
+:root {
+  --background-color: #252525;
+  --text-color: #ffffff;
+}
+
+@media screen and (prefers-color-scheme: light) {
+  :root {
+    --background-color: #d7d7d7;
+    --text-color: #000000;
+  }
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
