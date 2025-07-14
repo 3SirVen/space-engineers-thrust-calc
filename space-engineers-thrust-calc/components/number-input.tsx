@@ -1,4 +1,4 @@
-import type { ComponentChildren } from "preact";
+import type { ComponentChildren, JSX } from "preact";
 
 export interface NumberInputProps {
   onClick?: () => void;
@@ -28,22 +28,22 @@ export function NumberInput(props: NumberInputProps) {
     "text-[--text-color]",
   ].join(" ");
 
+  let html: JSX.Element;
+
   if (props.suggestions) {
     const suggestions = props.suggestions.map((suggestion) => {
-      return <option value={suggestion}></option>;
+      return <option key={suggestion} value={suggestion}></option>;
     });
 
-    const html = (
-      <div>
+    html = (
+      <>
         <input type="number" {...props} class={classes} list="suggestions" />
         <datalist id="suggestions">{suggestions}</datalist>
-      </div>
+      </>
     );
-
-    return html;
   } else {
-    const html = <input type="number" {...props} class={classes} />;
-
-    return html;
+    html = <input type="number" {...props} class={classes} />;
   }
+
+  return html;
 }

@@ -8,6 +8,7 @@ export default define.page(function Home() {
         <h1 class="text-4xl text-center">
           Space Engineers Thruster Requirement Calculator
         </h1>
+        Ship Weight
         <NumberInput min={0} value={15000} step={0.1} />
       </div>
     </div>
