@@ -20,7 +20,6 @@ const exampleLoggerMiddleware = define.middleware((ctx) => {
 app.use(exampleLoggerMiddleware)
 
 await fsRoutes(app, {
-  dir: './',
   loadIsland: (path) => import(`./islands/${path}`),
   loadRoute: (path) => import(`./routes/${path}`),
 })

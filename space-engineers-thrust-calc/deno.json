@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "check": "deno fmt --unstable-component && deno lint --fix && deno check",
     "dev": "deno run -A --watch=static/,routes/ dev.ts",
     "build": "deno run -A dev.ts build",
     "start": "deno run -A main.ts",
@@ -9,11 +9,11 @@
   },
   "exclude": ["**/_fresh/*"],
   "imports": {
-    "fresh": "jsr:@fresh/core@^2.0.0-alpha.25",
-    "@fresh/plugin-tailwind": "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.7",
-    "preact": "npm:preact@^10.24.3",
-    "@preact/signals": "npm:@preact/signals@^2.0.2",
-    "tailwindcss": "npm:tailwindcss@4.0.17"
+    "fresh": "jsr:@fresh/core@^2.0.0-alpha.43",
+    "preact": "npm:preact@^10.26.9",
+    "@preact/signals": "npm:@preact/signals@^2.2.1",
+    "tailwindcss": "npm:tailwindcss@^4.1.11",
+    "@fresh/plugin-tailwind": "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.7"
   },
   "compilerOptions": {
     "noFallthroughCasesInSwitch": true,
@@ -33,17 +33,15 @@
   },
   "lint": {
     "rules": {
-      "tags": ["fresh", "jsr", "recommended"]
+      "tags": ["fresh", "jsr", "jsx", "recommended"]
     }
   },
   "fmt": {
-    "options": {
-      "indentWidth": 2,
-      "lineWidth": 80,
-      "proseWrap": "always",
-      "semiColons": false,
-      "singleQuote": true,
-      "useTabs": false
-    }
+    "indentWidth": 2,
+    "lineWidth": 80,
+    "proseWrap": "always",
+    "semiColons": false,
+    "singleQuote": true,
+    "useTabs": false
   }
 }
